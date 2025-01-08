@@ -46,11 +46,17 @@ function createPost() {
 
   // Add it to the blog
   blogArticle.push(article);
-  console.log("\n \n New Blog post has been published \n \n");
+  console.log("\n \n New Blog article has been published \n \n");
 }
 
 function displayPost() {
   // Display every object (article) in the blogArticle Array
+
+  if (blogArticle.length === 0) {
+    console.log(
+      "\n \n Site is down. No post available. To fix this, create a post \n \n"
+    );
+  }
   blogArticle.forEach((article) =>
     console.log(`\n \n id : ${article.id} \n title : ${article.title} \n \n`)
   );
@@ -62,11 +68,13 @@ function readPost() {
   // Get the id
   const id = Number(prompt("Enter id(number) of the blog you want to read: "));
 
+  const articleIndex = blogArticle.findIndex((article) => article.id === id);
+
   // check if an article with that id exists
-  if (blogArticle[id]) {
+  if (blogArticle[articleIndex]) {
     // Display if it does
     console.log(
-      `\n \n id : ${blogArticle[id].id} \n title : ${blogArticle[id].title} \n description : ${blogArticle[id].description} \n \n`
+      `\n \n id : ${blogArticle[articleIndex].id} \n title : ${blogArticle[articleIndex].title} \n description : ${blogArticle[articleIndex].description} \n \n`
     );
   } else {
     console.log("\n \n Article not found \n \n");
@@ -81,11 +89,15 @@ function updatePost() {
     prompt("Enter id(number) of the blog you want to update: ")
   );
 
+  const articleId = blogArticle.findIndex((article) => article.id === id);
+
   // check if an article with that id exists
-  if (blogArticle[id]) {
+  if (blogArticle[articleId]) {
     // Update if it does
-    blogArticle[id].title = prompt("What is the new Title: ");
-    blogArticle[id].description = prompt("Write the changes to the Article: ");
+    blogArticle[articleId].title = prompt("What is the new Title: ");
+    blogArticle[articleId].description = prompt(
+      "Write the changes to the Article: "
+    );
     console.log(`\n \nArticle ${id} has been successfully updated\n \n`);
   } else {
     console.log("\n \n Article not found \n \n");
@@ -95,13 +107,16 @@ function updatePost() {
 function deletePost() {
   // Get the id of the blog to be updated
   const id = Number(
-    prompt("Enter id(number) of the blog you want to update: ")
+    prompt("Enter id(number) of the blog you want to delete: ")
   );
 
+  const articleIndex = blogArticle.findIndex((article) => article.id === id);
+
   // check if an article with that id exists
-  if (blogArticle[id]) {
+  if (blogArticle[articleIndex]) {
     // use splice to remove the object at the index that is equal to the selected id
-    blogArticle.splice(id, 1);
+    blogArticle.splice(articleIndex, 1);
+    console.log(`\n \n Article ${id} deleted \n \n`);
   } else {
     console.log("\n \n Article not found \n \n");
   }
