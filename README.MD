@@ -41,3 +41,9 @@ npm install
 ```
 
 Run the command above to install the necessary dependency files
+
+```bash
+node index.js
+```
+
+Run the command above on your terminal to start the app
