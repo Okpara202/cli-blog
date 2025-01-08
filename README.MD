@@ -36,14 +36,14 @@ _A simple Blog application that performs / allows basic CRUD operations._
 
 ## **SETUP**
 
+1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-Run the command above to install the necessary dependency files
+2. Start the app:
 
 ```bash
 node index.js
 ```
-
-Run the command above on your terminal to start the app
