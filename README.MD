@@ -30,7 +30,7 @@ _A simple Blog application that performs / allows basic CRUD operations._
 ### **Prerequisites:**
 
 - Node.js and npm.
-- A terminal (cmd, bash, etc)
+- A terminal (cmd, bash, powershell etc)
 
 ---
 
